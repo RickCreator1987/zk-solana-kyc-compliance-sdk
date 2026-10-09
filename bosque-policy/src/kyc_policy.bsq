@@ -1,0 +1,26 @@
+// Bosque language for deterministic KYC policy.
+// This file defines the KYC policy rules.
+
+namespace KYC;
+
+entity User {
+    field name: String;
+    field email: String;
+    field age: Int;
+    field country: String;
+    field riskScore: Int;
+}
+
+function evaluateKyc(user: User): {status: String, riskScore: Int} {
+    var risk = 0;
+    // Simple rules.
+    if user.age < 18 {
+        risk = risk + 50;
+    }
+    if user.country == "HighRisk" {
+        risk = risk + 30;
+    }
+    // More rules...
+    var status = if risk < 30 then "approved" else if risk < 70 then "review" else "rejected";
+    return {status: status, riskScore: risk};
+}

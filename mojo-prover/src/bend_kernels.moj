@@ -1,0 +1,15 @@
+# This module provides Mojo wrappers for Bend kernels.
+# In Mojo, we can use external functions via C FFI.
+# We'll assume Bend kernels are compiled to a shared library.
+
+@always_inline
+fn msm(public: DynamicVector[Field], private: DynamicVector[Field]) -> Field:
+    # Call into Bend's MSM kernel.
+    # Placeholder.
+    return Field(0)
+
+@always_inline
+fn fft(input: DynamicVector[Field]) -> DynamicVector[Field]:
+    # Call into Bend's FFT kernel.
+    # Placeholder.
+    return input

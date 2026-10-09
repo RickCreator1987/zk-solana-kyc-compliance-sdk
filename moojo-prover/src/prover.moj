@@ -1,0 +1,13 @@
+from circuits import KycCircuit
+
+fn generate_kyc_proof(user_id: String, name: String, email: String) -> String:
+    # Convert inputs to fields.
+    var public = DynamicVector[Field]()
+    public.append(Field(1))  # Placeholder for user id hash.
+    var private = DynamicVector[Field]()
+    private.append(Field.from_string(name))
+    private.append(Field.from_string(email))
+
+    var circuit = KycCircuit(public, private)
+    var proof = circuit.generate_proof()
+    return proof

@@ -1,0 +1,5 @@
+[project]
+name = "mojo_prover"
+version = "0.1.0"
+description = "ZK proving engine in Mojo"
+dependencies = []

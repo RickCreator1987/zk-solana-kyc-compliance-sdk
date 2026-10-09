@@ -1,0 +1,7 @@
+[package]
+org = "kyc"
+name = "kyc_service"
+version = "0.1.0"
+
+[build-options]
+observabilityIncluded = true

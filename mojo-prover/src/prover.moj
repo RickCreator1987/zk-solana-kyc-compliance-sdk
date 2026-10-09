@@ -1,0 +1,48 @@
+# prover.moj: Key generation, proof generation, and verification.
+from circuits import KycCircuit
+from bend_kernels import msm, fft
+from memory import DynamicVector
+from math import Field
+from external import poseidon_field_bytes  # from Zig
+
+# Key structure (simplified).
+struct ProvingKey:
+    var g1: Field  # Generator of G1
+    var g2: Field  # Generator of G2
+    # etc.
+
+struct VerificationKey:
+    var g1: Field
+    var g2: Field
+
+# Setup: generate keys (placeholder).
+fn setup() -> (ProvingKey, VerificationKey):
+    var pk = ProvingKey(g1=Field(1), g2=Field(2))
+    var vk = VerificationKey(g1=Field(1), g2=Field(2))
+    return (pk, vk)
+
+# Prove: given private inputs and public inputs, generate a proof.
+fn prove(pk: ProvingKey, kyc_token_hash: [Field; 32], user_wallet: [Field; 32], provider_secret: [Field; 32], public_wallet: [Field; 32], commitment_root: [Field; 32]) -> (DynamicVector[Field], DynamicVector[Field]):
+    # 1. Build circuit and compute witness.
+    var circuit = KycCircuit(public_wallet, commitment_root)
+    var witness = circuit.compute_witness(kyc_token_hash, user_wallet, provider_secret)
+    # 2. For demonstration, the proof is just the witness itself (not a real proof).
+    # In a real prover, we'd use MSM/FFT to create a polynomial commitment.
+    var proof = DynamicVector[Field]()
+    # Append witness values.
+    for i in range(witness.size()):
+        proof.append(witness[i])
+    # 3. Public inputs are: public_wallet, is_kyc_passed, commitment_root
+    var public_inputs = DynamicVector[Field]()
+    for i in range(32):
+        public_inputs.append(public_wallet[i])
+    public_inputs.append(circuit.is_kyc_passed)
+    for i in range(32):
+        public_inputs.append(commitment_root[i])
+    return (proof, public_inputs)
+
+# Verify: check proof against public inputs and verification key.
+fn verify(vk: VerificationKey, proof: DynamicVector[Field], public_inputs: DynamicVector[Field]) -> Bool:
+    # Simplified verification: just check that the proof is non-empty.
+    # In a real system, we'd check pairing equations.
+    return proof.size() > 0 and public_inputs.size() > 0

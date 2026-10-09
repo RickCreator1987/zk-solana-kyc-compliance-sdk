@@ -1,5 +1,8 @@
 name: Vercel Preview Deploy
 
+permissions:
+  contents: read
+
 on:
   pull_request:
 

@@ -1,0 +1,15 @@
+// Additional risk rules.
+
+namespace RiskRules;
+
+function evaluateRiskScore(user: KYC.User): Int {
+    // Combined risk.
+    var base = user.age < 18 ? 50 : 0;
+    var countryRisk = match user.country {
+        "US" => 10,
+        "CN" => 20,
+        "RU" => 25,
+        _ => 5
+    };
+    return base + countryRisk;
+}
