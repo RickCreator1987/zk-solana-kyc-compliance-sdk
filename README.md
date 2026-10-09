@@ -1,5 +1,12 @@
-This is a comprehensive update for your README.md, designed to align with high-quality Solana ecosystem standards. It includes a "Badge Wall," clear architectural overviews, and technical implementation details based on your repository's focus on Token Extensions (Transfer Hooks & Permanent Delegates).
-Updated README.md
+<a href='https://ko-fi.com/T6T61WAZYZ' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://storage.ko-fi.com/cdn/kofi5.png?v=6' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
+
+
+<script src="https://liberapay.com/GitDigital_liberapay/widgets/button.js"></script>
+<noscript><a href="https://liberapay.com/GitDigital_liberapay/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a></noscript>
+
+
+[![Open Collective](https://img.shields.io/opencollective/all/solana-project-funds?label=Backers%20%26%20Sponsors)](https://opencollective.com/solana-project-funds)
+[![Financial Contributors](https://opencollective.com/solana-project-funds/tiers/badge.svg)](https://opencollective.com/solana-project-funds)
 
 # Solana KYC Compliance SDK 🛡️
 
@@ -10,6 +17,21 @@ Updated README.md
 [![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=for-the-badge)](CONTRIBUTING.md)
 
 **An institutional-grade Open-Source SDK for enforcing KYC/AML compliance directly at the token level on Solana.**
+
+GET /v1/repo/{org}/{repo}/status
+
+{
+  "tier": "Resilience Verified",
+  "source_status": "Private",
+  "proven_metrics": ["continuity", "stickiness"],
+  "unproven_metrics": ["dependency", "risk_coverage"],
+  "scores": { "H": 0.72, "P": 0.21 },
+  "limitations": "P score capped at 0.3 without DependencyCircuit",
+  "upgrade_path": "Open source library code to unlock Public Good Certified"
+}
+
+
+
 
 ---
 
@@ -701,7 +723,14 @@ GitDigital Products builds **infrastructure-grade tooling** for regulated blockc
 We focus on trust, resilience, and long-term viability — not hype cycles.
 ~
 -
+## 💰 Financial Support
 
+This project is funded by the Solana Project Funds Open Collective.
+
+If you want to support development of the zk‑Solana KYC Compliance SDK,  
+please consider becoming a backer or sponsor:
+
+👉 https://opencollective.com/solana-project-funds
 
 
 **Ship code. Earn trust. Scale responsibly.**

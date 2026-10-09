@@ -1,0 +1,17 @@
+# Vale language for safe PII tokenization.
+# This file compiles to C.
+
+import stdlib.vale
+
+# Tokenize a string by replacing sensitive patterns with tokens.
+func tokenize(text: string) string {
+    # Simple placeholder: replace email and phone with tokens.
+    # Using regular expressions? Not available in Vale simple.
+    # We'll do a simple replacement.
+    var result = text
+    # Replace email-like patterns.
+    # In real, use regex, but here just placeholder.
+    result = result.replace("email@example.com", "TOKEN_EMAIL")
+    result = result.replace("123-456-7890", "TOKEN_PHONE")
+    return result
+}

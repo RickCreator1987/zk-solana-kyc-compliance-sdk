@@ -1,0 +1,16 @@
+# Optimized wrappers for Bend kernels with fused operations.
+from external import msm_kernel, fft_kernel, interpolation_kernel
+
+# Batched MSM using Pippenger.
+fn msm(points: DynamicVector[Field], scalars: DynamicVector[Field]) -> Field:
+    # Call Bend kernel with warp-level reductions.
+    return msm_kernel(points, scalars)
+
+# FFT with precomputed twiddle factors.
+fn fft(input: DynamicVector[Field], forward: Bool) -> DynamicVector[Field]:
+    # Bend kernel uses shared memory and coalesced loads.
+    return fft_kernel(input, forward)
+
+# Polynomial interpolation using FFT.
+fn polynomial_interpolation(points: DynamicVector[Field], values: DynamicVector[Field]) -> DynamicVector[Field]:
+    return interpolation_kernel(points, values)

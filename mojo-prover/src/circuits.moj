@@ -1,0 +1,24 @@
+# circuits.moj: Define the zk circuit for KYC compliance.
+from bend_kernels import msm, fft
+
+struct KycCircuit:
+    var public_inputs: DynamicVector[Field]
+    var private_inputs: DynamicVector[Field]
+
+    fn __init__(inout self, public: DynamicVector[Field], private: DynamicVector[Field]):
+        self.public_inputs = public
+        self.private_inputs = private
+
+    fn compute_witness(self) -> DynamicVector[Field]:
+        # Placeholder witness computation.
+        var witness = DynamicVector[Field]()
+        witness.append(Field(1))
+        return witness
+
+    fn generate_proof(self) -> String:
+        # Use MSM and FFT from bend kernels.
+        var msm_result = msm(self.public_inputs, self.private_inputs)
+        var fft_result = fft(self.public_inputs)
+        # Combine into a proof string (simplified).
+        var proof = "proof_" + str(msm_result) + "_" + str(fft_result)
+        return proof

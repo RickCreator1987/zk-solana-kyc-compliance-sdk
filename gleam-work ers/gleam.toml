@@ -1,0 +1,7 @@
+name = "kyc_workers"
+version = "0.1.0"
+
+[dependencies]
+gleam_erlang = "0.30.0"
+gleam_http = "3.5.0"
+gleam_json = "0.5.0"

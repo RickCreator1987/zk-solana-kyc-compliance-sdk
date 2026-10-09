@@ -1,0 +1,10 @@
+# Wrappers for Bend kernels.
+from external import msm_kernel, fft_kernel
+
+fn msm(scalars: DynamicVector[Field], points: DynamicVector[Field]) -> Field:
+    # Call Bend's MSM.
+    return msm_kernel(scalars, points)
+
+fn fft(input: DynamicVector[Field]) -> DynamicVector[Field]:
+    # Call Bend's FFT.
+    return fft_kernel(input)

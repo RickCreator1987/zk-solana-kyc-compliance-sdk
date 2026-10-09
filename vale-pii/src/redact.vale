@@ -1,0 +1,9 @@
+# Redact PII: remove sensitive data.
+func redact(text: string) string {
+    # Remove email and phone.
+    var result = text
+    # Placeholder: just remove those patterns.
+    result = result.replace("email@example.com", "[REDACTED]")
+    result = result.replace("123-456-7890", "[REDACTED]")
+    return result
+}
